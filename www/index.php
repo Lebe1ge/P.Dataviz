@@ -1,3 +1,8 @@
+<?php
+$page = "index.php";
+//require_once(str_replace($page, '', $_SERVER['SCRIPT_FILENAME']).'assets/core/conf.php');
+?>
+
 <!DOCTYPE html>
 <html lang="fr">
   <head>
@@ -30,6 +35,7 @@
     
     <script type="text/javascript" src="./assets/js/chart-nuage.js"></script>
     <script type="text/javascript" src="./assets/js/chart-baton.js"></script>
+    <script type="text/javascript" src="./assets/js/chart-treemap.js"></script>
 
     <script src="./assets/js/script.js"></script>
       
@@ -66,10 +72,9 @@
 
           <div id="graph-1" class="blog-post">
             <h2 class="blog-post-title">Graph 1</h2>
-            <p class="blog-post-meta">Description du graph 1</p>
+            <p class="blog-post-meta">Popularité des tags en fonction des années</p>
             <div id="chart-1"></div>
             <script type="text/javascript">
-            displayNuage("#chart-1");
             </script>
           </div><!-- /.blog-post -->
             
