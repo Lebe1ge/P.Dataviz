@@ -96,16 +96,18 @@ class Database
         $cdt = "";
         $fields = "*";
         $limit = "";
+        $group = "";
         $order = "id DESC";
         $bind = "";
         $d = array();
         extract($data);
         if(isset($data['limit'])){$limit = "LIMIT ".$data['limit'];}
+        if(isset($data['group'])){$group = "GROUP BY ".$data['group'];}
         foreach($conditions as $k => $v){
             $cdt .= $k . " = :" . $k . " AND ";
             $bind[":".$k] = utf8_decode($v);
         }
-        $sql = "SELECT ".$fields." FROM ".$this->table." WHERE ".substr($cdt,0,-5)." ORDER BY ".$order." ".$limit;
+        $sql = "SELECT ".$fields." FROM ".$this->table." WHERE ".substr($cdt,0,-5)." " .$group. " ORDER BY ".$order." ".$limit;
 
         $stmt = $bdd->prepare($sql);
         

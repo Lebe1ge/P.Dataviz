@@ -66,5 +66,35 @@ class Movies extends Database
         return $result;
     }
 
+    /**
+     * Count tags by years
+     * @param $years
+     * @return table
+     */
+    public function countFamilyByTitle() {
+        $result['name'] = "Family";
+        $result['children'] = array();
+        
+        $result['children'] = $this->show(
+            array(
+                'fields' => "case 
+                    when title like '%mother%' then 'Mother'
+                    when title like '%father%' then 'Father'
+                    when title like '%brother%' then 'brother'
+                    when title like '%sister%' then 'sister'
+                    end as name,
+                    count(*) as count",
+                'cdt' => 
+                    "title like '%mother%' 
+                    OR title like '%father%' 
+                    OR title like '%brother%' 
+                    OR title like '%sister%' 
+                    AND ",
+                'group' => "name"));
+        
+        //var_dump($data);
+        return $result;
+    }
+
 
 }

@@ -53,17 +53,12 @@
                     <h2 class="blog-post-title">Graph 1</h2>
                     <p class="blog-post-meta">Popularité des tags en fonction des années</p>
                     <div id="chart-1"></div>
-                    <script type="text/javascript">
-                    </script>
                 </div>
                 <!-- /.blog-post -->
                 <div id="graph-2" class="blog-post">
                     <h2 class="blog-post-title">Graph 2</h2>
                     <p class="blog-post-meta">Description du graph 1</p>
                     <div id="chart-2"></div>
-                    <script type="text/javascript">
-                        displayBaton("#chart-2");
-                    </script>
                 </div>
                 <!-- /.blog-post -->
                 <div id="graph-3" class="blog-post">

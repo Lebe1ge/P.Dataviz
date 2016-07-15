@@ -1,58 +1,45 @@
-function displayBaton(div, dataset = null){
+function displayBaton(div = "#chart-2", dataset = null){
     
-    var w = 500;
-    var h = 100;
-    var barPadding = 1;
-    if(div == null) { div = "#chart-2"};
-
-
-    //Static dataset
-    if(dataset == null) {
-        var dataset = [ 5, 10, 13, 19, 21, 25, 22, 18, 15, 13,
-                    11, 12, 15, 20, 18, 17, 16, 18, 23, 25 ];
-    }
-    
-
-    //Create SVG element
-    var svg = d3.select(div)
+    var width = $('#graph-1').width(), 
+        height = $('#graph-1').width() / 2,
+        barPadding = 1,
+        svg = d3.select(div)
                 .append("svg")
-                .attr("width", w)
-                .attr("height", h);
+                .attr("width", width)
+                .attr("height", height);
+    
+    console.log(dataset);
+    
+    var sum = d3.sum(dataset.children, function(g) {return g.count; });
+    
+    var node = svg.datum(dataset).selectAll("rect").data(dataset.children).enter()
+        .append("rect")
+        .attr("x", function(d, i) {
+            return i * (width / dataset.children.length);
+        })
+        .attr("y", function(d) {
+            return height - (d.count / sum * height);
+        })
+        .attr("width", width / dataset.children.length - barPadding)
+        .attr("height", function(d) {
+            return d.count / sum * height;
+        })
+        .attr("fill", function(d) {
+            return "rgb(0, 0, " + Math.round(d.count / sum * 255) + ")";
+        });
 
-    svg.selectAll("rect")
-       .data(dataset)
-       .enter()
-       .append("rect")
-       .attr("x", function(d, i) {
-            return i * (w / dataset.length);
-       })
-       .attr("y", function(d) {
-            return h - (d * 4);
-       })
-       .attr("width", w / dataset.length - barPadding)
-       .attr("height", function(d) {
-            return d * 4;
-       })
-       .attr("fill", function(d) {
-            return "rgb(0, 0, " + (d * 10) + ")";
-       });
-
-    svg.selectAll("text")
-       .data(dataset)
-       .enter()
+    var node = svg.datum(dataset).selectAll("text").data(dataset.children).enter()
        .append("text")
        .text(function(d) {
-            return d;
+            return d.name;
        })
        .attr("text-anchor", "middle")
        .attr("x", function(d, i) {
-            return i * (w / dataset.length) + (w / dataset.length - barPadding) / 2;
+            return i * (width / dataset.children.length) + (width / dataset.children.length - barPadding) / 2;
        })
        .attr("y", function(d) {
-            return h - (d * 4) + 14;
+            return height - (d.count / sum * height) + 14;
        })
-       .attr("font-family", "sans-serif")
        .attr("font-size", "11px")
        .attr("fill", "white");
-
 }

@@ -11,10 +11,12 @@ scrollTop:$(document).height()
             $('div.heading').css("margin", "0 auto");
             $('div.blog-container').css("height", "auto");
             // replace div's content with returned data
-            console.log(data);
-            displayTreemap("#chart-1", data);
+            //console.log(data);
+            displayTreemap("#chart-1", data.graph1);
+            displayBaton("#chart-2", data.graph2);
         }
     });
+    
  }
 
 $(function() {
@@ -22,12 +24,7 @@ $(function() {
     var data_JSON;
     
     $("button#loadData").on('click', function() {
-        loadJSON(function(response) {
-            // Parse JSON string into object
-            //data_JSON = JSON.parse(response);
-            alert('Chargement réussi');
-            //console.log(data_JSON.length);
-        });
+        loadJSON();
     });
     
     
