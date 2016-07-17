@@ -101,6 +101,8 @@ class Database
         $bind = "";
         $d = array();
         extract($data);
+        if(isset($data['fields'])){$fields = $data['fields'];}
+        if(isset($data['order'])){$order = $data['order'];}
         if(isset($data['limit'])){$limit = "LIMIT ".$data['limit'];}
         if(isset($data['group'])){$group = "GROUP BY ".$data['group'];}
         foreach($conditions as $k => $v){
@@ -113,7 +115,7 @@ class Database
         
         //var_dump($sql);
 
-		if($stmt->execute($bind)) {
+        if($stmt->execute($bind)) {
             while($data = $stmt->fetch(PDO::FETCH_ASSOC)) {
                 foreach($data as $key => &$value) {
                     $value = utf8_encode($value);
@@ -121,7 +123,7 @@ class Database
                 array_push($d, $data);
             }
             return $d;
-		} else
+        } else
             return false;
     }
 

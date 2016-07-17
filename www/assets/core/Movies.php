@@ -97,4 +97,17 @@ class Movies extends Database
     }
 
 
+    public function countViewByDate($year = 2007){
+
+        $args = array(  'fields'    => 'DATEDIFF(DATE(NOW()), upload_date) AS DateDiff, nb_views, title, channels',
+                        'cdt'       => "upload_date IS NOT NULL AND upload_date != 'NA' AND DATEDIFF(upload_date, DATE(NOW())) IS NOT NULL AND upload_date BETWEEN '" . $year . "-01-01' AND '" . $year . "-31-12' AND ",
+                        'order'     => 'nb_views DESC',
+                        'limit'     => ' 1000'
+                    );
+
+        return $this->show($args);
+
+    }
+
+
 }

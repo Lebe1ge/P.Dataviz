@@ -21,6 +21,7 @@
     <script>
         window.jQuery || document.write('<script src="./assets/js/jquery.min.js"><\/script>')
     </script>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
     <!-- D3 -->
     <script type="text/javascript" src="./assets/js/d3.v3.js"></script>
     <script src="http://labratrevenge.com/d3-tip/javascripts/d3.tip.v0.6.3.js"></script>
@@ -62,9 +63,22 @@
                 </div>
                 <!-- /.blog-post -->
                 <div id="graph-3" class="blog-post">
-                    <h2 class="blog-post-title">Graph 1</h2>
-                    <p class="blog-post-meta">Description du graph 1</p>
-                    <p>GRAPH 1</p>
+                    <h2 class="blog-post-title">Graph 3</h2>
+                    <p class="blog-post-meta">Description du graph 3</p>
+                    <p>
+                        Sélectionner l'année que vous voulez afficher : 
+                        <select id="graph3_year_filter" >
+                            <option value="2007" >2007</option>
+                            <option value="2008" >2008</option>
+                            <option value="2009" >2009</option>
+                            <option value="2010" >2010</option>
+                            <option value="2011" >2011</option>
+                            <option value="2012" >2012</option>
+                            <option value="2013" >2013</option>
+                        </select>
+                        <i id="refresh_graph3_year" class="glyphicon glyphicon-refresh normal-right-spinner hidden" ></i>
+                    </p>
+                    <div id="chart-3" style="width: 100%; height: 500px;"></div>
                 </div>
                 <!-- /.blog-post -->
                 <div id="graph-4" class="blog-post">
