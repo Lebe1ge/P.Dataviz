@@ -24,10 +24,12 @@
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
     <!-- D3 -->
     <script type="text/javascript" src="./assets/js/d3.v3.js"></script>
+    <script type="text/javascript" src="./assets/js/wordcloud.js"></script>
     <script src="http://labratrevenge.com/d3-tip/javascripts/d3.tip.v0.6.3.js"></script>
     <script type="text/javascript" src="./assets/js/chart-nuage.js"></script>
     <script type="text/javascript" src="./assets/js/chart-baton.js"></script>
-    <script type="text/javascript" src="./assets/js/chart-treemap.js"></script>
+    <script type="text/javascript" src="./assets/js/chart-treemap.js"></script>-->
+    <script type="text/javascript" src="./assets/js/chart-cloud.js"></script>
     <script src="./assets/js/script.js"></script>
 </head>
 
@@ -66,7 +68,7 @@
                     <h2 class="blog-post-title">Graph 3</h2>
                     <p class="blog-post-meta">Description du graph 3</p>
                     <p>
-                        Sélectionner l'année que vous voulez afficher : 
+                        Sélectionner l'année que vous voulez afficher :
                         <select id="graph3_year_filter" >
                             <option value="2007" >2007</option>
                             <option value="2008" >2008</option>
@@ -81,10 +83,10 @@
                     <div id="chart-3" style="width: 100%; height: 500px;"></div>
                 </div>
                 <!-- /.blog-post -->
-                <div id="graph-4" class="blog-post">
-                    <h2 class="blog-post-title">Graph 1</h2>
-                    <p class="blog-post-meta">Description du graph 1</p>
-                    <p>GRAPH 1</p>
+                <div class="blog-post">
+                    <h2 class="blog-post-title">Graph 4</h2>
+                    <p class="blog-post-meta">Cette dataviz montre les mots les plus utilisés dans les descriptions des videos</p>
+                    <canvas id="graph-4" width="800" height="400"></canvas>
                 </div>
                 <!-- /.blog-post -->
             </div>

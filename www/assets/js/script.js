@@ -8,8 +8,8 @@ function loadJSON(callback) {
         url: "./assets/core/getData.php",
         success: function (data) {
             $('body').animate({
-scrollTop:$(document).height()
-});
+                scrollTop:$(document).height()
+            });
             $('div.heading').css("margin", "0 auto");
             $('div.blog-container').css("height", "auto");
             // replace div's content with returned data
@@ -19,6 +19,7 @@ scrollTop:$(document).height()
 
             //GRAPH 3
             displayNuageDePoints("chart-3", data.graph3);
+            displayCloud("#chart-4", data.graph4);
         }
     });
     
@@ -49,6 +50,8 @@ $(function() {
             }
         });
     });
+
+
     
 });
 

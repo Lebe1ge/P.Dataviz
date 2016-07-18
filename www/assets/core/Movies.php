@@ -109,5 +109,14 @@ class Movies extends Database
 
     }
 
+    public function getWords(){
+        $args = array( 'fields' => 'channels',
+            'limit'     => ' 300');
+
+        $descriptions = $this->show($args);
+
+        return $descriptions;
+    }
+
 
 }
