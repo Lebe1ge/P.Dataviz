@@ -28,7 +28,7 @@
     <script src="http://labratrevenge.com/d3-tip/javascripts/d3.tip.v0.6.3.js"></script>
     <script type="text/javascript" src="./assets/js/chart-nuage.js"></script>
     <script type="text/javascript" src="./assets/js/chart-baton.js"></script>
-    <script type="text/javascript" src="./assets/js/chart-treemap.js"></script>-->
+    <script type="text/javascript" src="./assets/js/chart-treemap.js"></script>
     <script type="text/javascript" src="./assets/js/chart-cloud.js"></script>
     <script src="./assets/js/script.js"></script>
 </head>
@@ -55,18 +55,31 @@
                 <div id="graph-1" class="blog-post">
                     <h2 class="blog-post-title">Graph 1</h2>
                     <p class="blog-post-meta">Popularité des tags en fonction des années</p>
+                    <p>
+                        Sélectionner l'année que vous voulez afficher :
+                        <select id="graph1_year_filter" >
+                            <option value="2007" >2007</option>
+                            <option value="2008" >2008</option>
+                            <option value="2009" >2009</option>
+                            <option value="2010" >2010</option>
+                            <option value="2011" >2011</option>
+                            <option value="2012" >2012</option>
+                            <option value="2013" >2013</option>
+                        </select>
+                        <i id="refresh_graph1_year" class="glyphicon glyphicon-refresh normal-right-spinner hidden" ></i>
+                    </p>
                     <div id="chart-1"></div>
                 </div>
                 <!-- /.blog-post -->
                 <div id="graph-2" class="blog-post">
                     <h2 class="blog-post-title">Graph 2</h2>
-                    <p class="blog-post-meta">Description du graph 1</p>
+                    <p class="blog-post-meta">Nombre d'occurence des termes suivant dans les titres</p>
                     <div id="chart-2"></div>
                 </div>
                 <!-- /.blog-post -->
                 <div id="graph-3" class="blog-post">
                     <h2 class="blog-post-title">Graph 3</h2>
-                    <p class="blog-post-meta">Description du graph 3</p>
+                    <p class="blog-post-meta">Nombre de vues en fonction de l'ancienneté</p>
                     <p>
                         Sélectionner l'année que vous voulez afficher :
                         <select id="graph3_year_filter" >

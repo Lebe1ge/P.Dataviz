@@ -35,7 +35,7 @@ function displayCloud(div, dataset){
     });
 
     tags = tags.slice(0,250);
-    console.log(tags);
+    //console.log(tags);
 
     WordCloud(document.getElementById('graph-4'), {
         gridSize: Math.round(16 * $('#graph-4').width() / 1024),

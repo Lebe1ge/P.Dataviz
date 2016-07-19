@@ -80,15 +80,17 @@ class Movies extends Database
                 'fields' => "case 
                     when title like '%mother%' then 'Mother'
                     when title like '%father%' then 'Father'
-                    when title like '%brother%' then 'brother'
-                    when title like '%sister%' then 'sister'
+                    when title like '%brother%' then 'Brother'
+                    when title like '%sister%' then 'Sister'
+                    when title like '%daughter%' then 'Daughter'
                     end as name,
-                    count(*) as count",
+                    count(*) as count, SUM(nb_views) as nb_views",
                 'cdt' => 
                     "title like '%mother%' 
                     OR title like '%father%' 
                     OR title like '%brother%' 
                     OR title like '%sister%' 
+                    OR title like '%daughter%'
                     AND ",
                 'group' => "name"));
         

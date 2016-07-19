@@ -18,14 +18,14 @@ function displayTreemap(div, dataset = null) {
     var color = d3.scale.linear().domain([min_views, max_views]).interpolate(d3.interpolateHcl).range([d3.rgb("#ff9be8"), d3.rgb('#ff00c4')]);
     
     // Div du tooltip
-    var tip = d3.tip()
+    var tip1 = d3.tip()
       .attr('class', 'd3-tip')
       .offset([-10, 0])
       .html(function(d) {
         return "<strong>Nom:</strong> <span style='color:red'>" + d.name + "</span><br><strong>Nb de vue:</strong> <span style='color:red'>" + d.nb_views + "</span>";
       })
     
-    svg.call(tip);
+    svg.call(tip1);
     
     var node = svg.datum(dataset).selectAll(".node").data(treemap.nodes).enter()
         .append("rect")
@@ -34,8 +34,8 @@ function displayTreemap(div, dataset = null) {
         .attr("fill", function (d) {
             return d.name == 'tree' ? '#fff' : color(d.nb_views);
         })
-        .on('mouseover', tip.show)
-        .on('mouseout', tip.hide)
+        .on('mouseover', tip1.show)
+        .on('mouseout', tip1.hide)
 }
 
 function position() {
