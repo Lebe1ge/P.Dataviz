@@ -143,23 +143,19 @@ function displayNuageDePoints(id, data) {
 function displayBubble(id, data){
     
     var donnees = [];
-    var arr = [[11, 123, 1236, "Acura"], [45, 92, 1067, "Alfa Romeo"], 
-    [24, 104, 1176, "AM General"], [50, 23, 610, "Aston Martin Lagonda"], 
-    [18, 17, 539, "Audi"], [7, 89, 864, "BMW"], [2, 13, 1026, "Bugatti"]];
 
     data.forEach( function( key ){
         donnees.push( [parseInt(key.nb_comments), parseInt(key.nb_votes), parseInt(key.nb_votes), key.title ] );
     }) ;
 
 
-    plot1 = $.jqplot(id,[arr],{
-        title: 'Transparent Bubbles',
+    plot1 = $.jqplot(id,[donnees],{
+        title: 'Top 5 des votes les plus notés',
         seriesDefaults:{
             renderer: $.jqplot.BubbleRenderer,
             rendererOptions: {
                 bubbleAlpha: 0.6,
                 highlightAlpha: 0.8,
-                showLabels: false
             },
             shadow: true,
             shadowAlpha: 0.05
