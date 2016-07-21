@@ -150,7 +150,7 @@ function displayBubble(id, data){
 
 
     plot1 = $.jqplot(id,[donnees],{
-        title: 'Top 5 des votes les plus notés',
+        title: 'Top 5 des vidéos les plus notés',
         seriesDefaults:{
             renderer: $.jqplot.BubbleRenderer,
             rendererOptions: {
@@ -180,7 +180,7 @@ function displayBubble(id, data){
         });
      
     // Bind a function to the unhighlight event to clean up after highlighting.
-    $('#chart1b').bind('jqplotDataUnhighlight', 
+    $('#chart-5').bind('jqplotDataUnhighlight', 
         function (ev, seriesIndex, pointIndex, data) {
             $('#tooltip1b').empty();
             $('#tooltip1b').hide();
