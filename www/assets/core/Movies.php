@@ -111,6 +111,23 @@ class Movies extends Database
 
     }
 
+    /**
+    * Count vote by date
+    * @param $years
+    * @return table
+    **/
+
+    public function countVoteByDate( $year = 2007 ){
+
+        $args = array( 'fields' => 'nb_votes, nb_comments, title, YEAR(upload_date) as year',
+                       'cdt'    => " upload_date IS NOT NULL AND upload_date != 'NA' AND DATEDIFF(upload_date, DATE(NOW())) IS NOT NULL AND upload_date BETWEEN '" . $year . "-01-01' AND '" . $year . "-31-12' AND ",
+                       'order'  => 'nb_votes DESC',
+                       'limit'  => ' 5'
+                     );
+        return $this->show( $args );
+    }    
+
+
     public function getWords(){
         $args = array( 'fields' => 'channels',
             'limit'     => ' 300');

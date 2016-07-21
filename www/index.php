@@ -16,6 +16,7 @@
     <link href="./assets/css/bootstrap.min.css" rel="stylesheet">
     <!-- Custom styles for this template -->
     <link href="./assets/css/style.css" rel="stylesheet">
+    <link href="./assets/css/jquery.jqplot.min.css" rel="stylesheet">
     <!-- Placed at the end of the document so the pages load faster -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <script>
@@ -30,6 +31,8 @@
     <script type="text/javascript" src="./assets/js/chart-baton.js"></script>
     <script type="text/javascript" src="./assets/js/chart-treemap.js"></script>
     <script type="text/javascript" src="./assets/js/chart-cloud.js"></script>
+    <script type="text/javascript" src="./assets/js/jquery.jqplot.min.js"></script>
+    <script type="text/javascript" src="./assets/js/renderer/jqplot.bubbleRenderer.js"></script>
     <script src="./assets/js/script.js"></script>
 </head>
 
@@ -101,6 +104,26 @@
                     <p class="blog-post-meta">Cette dataviz montre les mots les plus utilisés dans les descriptions des videos</p>
                     <canvas id="graph-4" width="800" height="400"></canvas>
                 </div>
+
+                <div class="blog-post">
+                    <h2 class="blog-post-title">Graph 5</h2>
+                    <p class="blog-post-meta">Top 5 des vidéos les plus notés avec le nombre de commentaires pour chaque</p>
+                    <p>
+                        Sélectionner l'année que vous voulez afficher :
+                        <select id="graph5_year_filter" >
+                            <option value="2007" >2007</option>
+                            <option value="2008" >2008</option>
+                            <option value="2009" >2009</option>
+                            <option value="2010" >2010</option>
+                            <option value="2011" >2011</option>
+                            <option value="2012" >2012</option>
+                            <option value="2013" >2013</option>
+                        </select>
+                        <i id="refresh_graph3_year" class="glyphicon glyphicon-refresh normal-right-spinner hidden" ></i>
+                    </p>
+                    <div id="chart-5"></div> 
+                    <div style="position:absolute;z-index:99;display:none;" id="test"></div>
+                </div>
                 <!-- /.blog-post -->
             </div>
             <!-- /.blog-main -->
@@ -112,6 +135,7 @@
                         <li><a href="#graph-2">Graph 2</a></li>
                         <li><a href="#graph-3">Graph 3</a></li>
                         <li><a href="#graph-4">Graph 4</a></li>
+                        <li><a href="#graph-5">Graph 5</a></li>
                     </ol>
                 </div>
             </div>
